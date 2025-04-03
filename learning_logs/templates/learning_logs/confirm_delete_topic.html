@@ -1,0 +1,13 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block page_header %}
+    <h1><p>Are you sure you want to delete "<a href="{% url 'learning_logs:topic' topic.id %}">{{topic}}</a>" topic?</p></h1>
+{% endblock page_header %}
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <button class="btn btn-lg btn-outline-primary" type="submit">Yes</button>
+        <a class="btn btn-lg btn-primary" href="{% url 'learning_logs:topic' topic.id %}">No</a>
+    </form>
+{% endblock content %}
